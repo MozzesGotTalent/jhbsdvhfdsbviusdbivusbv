@@ -284,6 +284,18 @@
                 transition: background-color 0.3s ease;
                 color: black;
             }
+            .nav-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .nav-link {
+                white-space: nowrap;
+                display: inline-block;
+                line-height: 1.2;
+                padding: 0.5rem 1rem;
+            }
             .nav-link:hover,
             .nav-link.attivo {
                 background-color: var(--light-bg);
@@ -601,19 +613,24 @@
         .membership-card {
             cursor: pointer;
             margin-bottom: 1rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .membership-card img {
             width: 100%;
-            max-width: 250px;
+            max-width: 300px;
             height: auto;
-            border-radius: 8px;
-            margin: 0 auto;
+            border-radius: 10px;
             display: block;
+            margin: 0 auto;
         }
 
         .card-year {
-            position: absolute;
+            position: relative;
             top: 5px;
             right: 5px;
             background: var(--primary-color);
@@ -631,6 +648,56 @@
             width: 100%;
             height: auto;
             border-radius: 10px;
+        }
+
+        .info-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transform-origin: center center;
+            background: rgba(255, 255, 255, 0.95);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .membership-card .info-icon {
+                margin-top: 50px;
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 1;
+                color: var(--primary-color);
+                content: "INFO";
+            }
+        }
+
+        @media (min-width: 1201px) {
+            .membership-card:hover .info-icon {
+                margin-top: -22px;
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 1;
+                color: var(--primary-color);
+            }
+        }
+
+        .info-icon i {
+            color: var(--primary-color);
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .membership-card:hover .info-icon i {
+
+            transform: rotate(360deg);
         }
     </style>
 
@@ -656,10 +723,70 @@
             { year: 2018, image: 'img/tessera 2018.jpg', description: 'Tessera NOI 2018' },
             { year: 2019, image: 'img/tessera 2019.jpg', description: 'Tessera NOI 2019' },
             { year: 2020, image: 'img/tessera 2020.jpg', description: 'Tessera NOI 2020' },
-            { year: 2022, image: 'img/tessera 2022.jpg', description: 'Tessera NOI 2022' },
-            { year: 2023, image: 'img/tessera 2023.jpg', description: 'Tessera NOI 2023' },
-            { year: 2024, image: 'img/tessera 2024.jpg', description: 'Tessera NOI 2024' },
-            { year: 2025, image: 'img/tessera 2025.jpg', description: 'Tessera NOI 2025' }
+            { year: 2021, image: 'img/tessera 2021.jpg', description: 'Tessera NOI 2021', longDescription: `
+    <span style="color: orange"><strong>UN PONTE DI REL-AZIONI</strong></span><br>
+    Il PONTE rappresenta la possibilità di unire e di incontrarsi su un terreno comune praticabile da tutti.<br>
+    Nella grafica si vede che si incontrano le FAMIGLIE: luogo privilegiato di crescita e di attenzione delle nostre
+    prassi oratoriali e parrocchiali.<br>
+    Si vede ACCOGLIENZA, gli uni verso gli altri, come sfondo umano irrinunciabile in un tempo di grande complessità
+    come quello che stiamo attraversando.<br>
+    Il tutto è possibile nella realizzazione di un progetto educativo che sappia unire (come il ponte) le attività,
+    il gioco, lo sport, il tempo libero, e questa è la <strong>MISSIONE</strong> della nostra Associazione!
+  </span>` },
+  { year: 2022, image: 'img/tessera 2022.jpg', description: 'Tessera NOI 2022', longDescription: `
+  <span style="color: orange"><strong>2022 - NEXT GENERATION NOI</strong></span><br>
+    Il 2022 è l’anno del ventennale della nostra associazione.
+    Il tema scelto per l’anno 2022 porta con sé tutta la voglia di ripartire in mezzo a tutte le difficoltà che la
+    pandemia ha portato con sé.
+    Con questo tema desideriamo ardentemente che le attività educative riprendano a pieno regime e nel rispetto
+    delle regole. Difatti, come la società civile ha bisogno di nuovi impulsi e raccolta di idee per ripartire,
+    anche NOI Associazione vuole ripartire e darsi un nuovo volto della sua presenza in oratorio.
+  </span>` },
+
+            { year: 2023, image: 'img/tessera 2023.jpg', description: 'Tessera NOI 2023', longDescription: `
+    <span style="color: orange"><strong>2023 - TESTA O CUORE. VINCE CHI ACCOGLIE</strong></span><br>
+    Il 2023 è il primo anno dopo la celebrazione del ventennale di NOI Associazione.
+    Come non ripartire con lo sguardo di Marta e Maria? Due sorelle che il Vangelo ci presenta come icona di un
+    cammino che desideriamo condividere con la Chiesa Italiana in questo secondo anno sinodale.
+    Crediamo che la sfida educativa a cui siamo chiamati nei nostri circoli oratori sia ben rappresentata da due simboli:
+    la testa e il cuore. Due fuochi della nostra umanità, due simboli affettivi del nostro desiderio: Marta e Maria
+    potrebbero essere icona della testa e del cuore che anima la vita dei circoli e della comunità.<br>
+    <em><a href="ciao.com">leggi altro</a></em>
+  </span>` },
+            { year: 2024, image: 'img/tessera 2024.jpg', description: 'Tessera NOI 2024', longDescription: `
+  
+  <span style="color: orange"><strong>2024 - NUOVO LOGO, NUOVI OBIETTIVI, SEMPRE NOI</strong></span><br>
+    Il 2024 sarà il primo anno del nuovo logo di NOI Associazione.
+    Per l’occasione, NOI ha coniato uno slogan che ci accompagnerà nei prossimi dodici mesi di vita associativa:
+    “Nuovo logo, Nuovi obiettivi, Sempre NOI”.<br>
+    Quello che vivremo sarà un anno caratterizzato da un percorso in sintonia con il cammino sinodale della Chiesa
+    Italiana: attraverso la figura biblica di Emmaus, saremo accompagnati mediante un sussidio a riflettere sui temi
+    della partecipazione e sull’attenzione alla persona intesa come vera e propria missione, secondo lo stile della
+    prossimità.
+    Ma avremo anche l’opportunità di soffermarci sulla mediazione culturale nel dialogo con il territorio, 
+    sull’importanza dell’essere testimoni nella Chiesa, nella formazione alla fede e alla vita.
+    Poi attraverseremo il tema della corresponsabilità nell’azione educativa della comunità e riscopriremo
+    l’associazione nelle sue strutture.
+    Sarà un cammino energico, elettrizzante, formativo e ricco di nuovi obiettivi che ci faranno riscoprire la nostra
+    essenza. L’essere sempre NOI.` },
+            { year: 2025, image: 'img/tessera 2025.jpg', description: 'Tessera NOI 2025', longDescription: `
+                <span style="color: orange"><strong>2025 - TIPI LOSCHI DA ORATORI</strong></span><br>
+    «Vivere, non vivacchiare». Il motto di Pier Giorgio Frassati risuona ogni giorno nei nostri oratori.
+    Ci riguarda da vicino, ci sprona a puntare in alto sulle orme del Vangelo.
+    A cento anni dalla sua nascita al cielo, avvenuta il 4 luglio 1925, il beato torinese continua a essere un esempio
+    per chi vive l’esperienza cristiana nella dimensione dell’amicizia e dell’impegno sociale.
+    Per questo, come NOI Associazione, nel 2025 ci lasceremo guidare in modo particolare dalla figura del giovane Frassati,
+    in attesa di celebrare l’evento di grazia da poco annunciato: la sua canonizzazione.
+    Laico e giovane militante in associazioni del laicato cattolico, Pier Giorgio si impegnò con tutto sé stesso in
+    iniziative di sviluppo sociale e di carità verso i poveri e i malati. Ispirandoci al suo modello di santità, 
+    daremo ancor più risalto a quei valori che da sempre guidano la ventennale esperienza di NOI Associazione negli
+    oratori e nelle comunità: la solidarietà, l’amicizia sincera, l’uguaglianza, la giustizia sociale, la cooperazione,
+    il rispetto per il Creato.
+    Assieme a Frassati ci riscopriremo «Tipi Loschi» da oratorio, per riadattare la goliardica espressione che lo stesso
+    Pier Giorgio coniò per descrivere un modo originale e nuovo di vivere l’amicizia, secondo un legame di fede che dà
+    valore e dignità all’esperienza umana.
+  </span>
+    ` }
         ];
 
 
@@ -671,12 +798,16 @@
                 const cardElement = document.createElement('div');
                 cardElement.className = 'col-md-6 col-lg-3';
                 cardElement.innerHTML = `
-                    <div class="membership-card position-relative">
+                    <div class="membership-card position-relative ${card.year >= 2021 && card.year <= 2025 ? 'has-description' : ''}" 
+                         ${card.year >= 2021 && card.year <= 2025 ? `onclick='showCardDescription(${JSON.stringify(card).replace(/'/g, "\'")});'` : ''}>
                         <img src="${card.image}" alt="${card.description}" 
                              onload="this.style.opacity='1'" 
                              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%23f0f0f0\' /%3E%3Ctext x=\'50\' y=\'50\' font-family=\'Arial\' font-size=\'14\' fill=\'%23999\' text-anchor=\'middle\' dy=\'.3em\'%3EImmagine non disponibile%3C/text%3E%3C/svg%3E'" 
                              style="opacity: 0; transition: opacity 0.3s ease;">
-                        <div class="card-year">${card.year}</div>
+                        ${card.year >= 2021 && card.year <= 2025 ? '<div class="info-icon"><i class="fas fa-info-circle"></i></div>' : ''}
+                        <div style="text-align: center;">
+                            <div class="card-year mt-2">${card.year}</div>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(cardElement);
@@ -694,7 +825,6 @@
         displayCards(membershipCards);
     </script>
 
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -702,37 +832,42 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4 style="color: var(--secondary-color);">Circolo NOI San Zeno In Mozzo - APS</h4>
                     <p><i class="fas fa-map-marker-alt me-2"></i>Via F. Miniscalchi, 8 - 37060 Mozzecane (VR)</p>
-                    <p><i class="fas fa-envelope me-2"></i>info@noisanzenoinmozzoaps.com</p>
-                    <p><i class="fas fa-envelope me-2"></i>noisanzenoinmozzoaps@pec.it</p>
+                    <p><i class="fas fa-envelope me-2"></i><a href="mailto:info@noisanzenoinmozzoaps.com" class="text-white">info@noisanzenoinmozzoaps.com</a></p>
+                    <p><i class="fas fa-envelope me-2"></i><a href="mailto:noisanzenoinmozzoaps@pec.it" class="text-white">noisanzenoinmozzoaps@pec.it</a></p>
                     <p style="font-size: 15px; color: white; text-decoration: none;">Cod. Fiscale 93113630235 <br> </p>
                         <p style="font-size: 10px;font-style: italic;">
                             Iscritta nel RUNTS nella sezione “Associazioni di Promozione Sociale” con n° 549 del 11/10/2022 <br>
                             Affiliato a NOI Verona APS - Aderente alla Rete nazionale NOI ASSOCIAZIONE APS</p>
-
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4 style="color: var(--secondary-color);">Collegamenti Rapidi</h4>
                     <ul class="list-unstyled">
-                        <li><a href="chisiamo/" class="text-white">Chi Siamo</a></li>
-                        <li><a href="tesseramento/" class="text-white">Tesseramento</a></li>
-                        <li><a href="bilanciSociali/" class="text-white">Bilanci Sociali</a></li>
+                        <li><a href="../" class="text-white">Home</a></li>
+                        <li><a href="../../chisiamo/" class="text-white">Chi Siamo</a></li>
+                        <li><a href="../../tesseramento/" class="text-white">Tesseramento</a></li>
+                        <li><a href="../../bilanciSociali/" class="text-white">Bilanci Sociali</a></li>
+                        <li><a href="../" class="text-white">Tesseramento</a></li>
+                        <li><a href="../../comeAiutarci/" class="text-white">Come Aiutarci</a></li>
+                        <li><a href="../../rassegnaStampa/" class="text-white">Rassegna Stampa</a></li>
+                        <li><a href="../../ilNostroContributo/" class="text-white">Il nostro Contributo per l'ambiente</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h4 style="color: var(--secondary-color);">Social Media</h4>
                     <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/393474358252" class="text-white me-3"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/noisanzenoinmozzoaps/?locale=it_IT" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/noisanzenoinmozzoaps/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@noisanzenoinmozzoaps" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
             <hr class="mt-4 mb-4 border-light">
             <div class="text-center">
-                <p class="mb-0">&copy; 2024-2025 Noi San Zeno in Mozzo APS. Tutti i diritti riservati.</p>
+                <p class="mb-0">&copy; 2024-2025 NOI San Zeno In Mozzo - APS. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Update JavaScript section
@@ -753,15 +888,174 @@
 </body>
 </html>
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
+<style>
+.card-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
 }
 
-.gallery-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
+
+.modal-body {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.modal-image {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card-preview-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .modal-body {
+        flex-direction: column;
+    }
+
+    .modal-image {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+        display: none;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--primary-color);
+}
+
+.modal-year {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.modal-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-line;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 10px;
+}
+
+.modal-description::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-description::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-description::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.modal-description::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+</style>
+
+<div id="cardModal" class="card-modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-year"></div>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img src="" alt="Tessera" class="card-preview-image">
+            </div>
+            <div class="modal-description"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+function showCardDescription(card) {
+  if (card.year >= 2021 && card.year <= 2025 && card.longDescription) {
+    const modal = document.getElementById('cardModal');
+    const yearEl = modal.querySelector('.modal-year');
+    const descEl = modal.querySelector('.modal-description');
+    const imgEl = modal.querySelector('.card-preview-image');
+
+    yearEl.textContent = card.year;
+    
+    // Instead of stripping HTML, we'll preserve it
+    descEl.innerHTML = card.longDescription;
+    
+    imgEl.src = card.image;
+    imgEl.alt = card.description;
+    modal.style.display = 'flex';
+  }
+}
+
+function closeModal() {
+    document.getElementById('cardModal').style.display = 'none';
+}
+
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('card-modal')) {
+        closeModal();
+    }
+});
+
+function createCard(card) {
+    const cardElement = document.createElement('div');
+    cardElement.className = 'card';
+    cardElement.onclick = () => showCardDescription(card);
+    
+    cardElement.innerHTML = `
+        <img src="${card.image}" alt="Tessera ${card.year}" class="card-img">
+        <div class="card-info">
+            <h3>${card.year}</h3>
+            <p>${card.description}</p>
+        </div>
+    `;
+    
+    return cardElement;
+}
+</script>
+</body>
+</html>

@@ -213,9 +213,14 @@
         .nav-item {
             display: flex;
             justify-content: center;
+            align-items: center;
+            text-align: center;
         }
         .nav-link {
             white-space: nowrap;
+            display: inline-block;
+            line-height: 1.2;
+            padding: 0.5rem 1rem;
         }
         @media (min-width: 992px) {
             
@@ -511,8 +516,14 @@
             }
         }
 
-
-
+        .billiard-ball {
+            filter: invert(65%) sepia(72%) saturate(845%) hue-rotate(360deg) brightness(102%) contrast(102%); /* Orange */
+            transition: all 0.3s ease;
+        }
+        .billiard-ball:hover {
+            filter: invert(31%) sepia(98%) saturate(1042%) hue-rotate(197deg) brightness(97%) contrast(107%); /* Blue */
+            transform: scale(1.2);
+        }
     </style>
 </head>
 <body>
@@ -539,7 +550,7 @@
                         </div>
                         <div class="d-lg-flex align-items-center">
                             <li class="nav-item"><a class="nav-link fw-medium" href="tesseramento/">Tesseramento</a></li>
-                            <li class="nav-item"><a class="nav-link fw-medium" href="comeAiutarci/">Come <br>Aiutarci</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="comeAiutarci/" >Come <br>Aiutarci</a></li>
                             <li class="nav-item"><a class="nav-link fw-medium" href="rassegnaStampa/">Rassegna <br>Stampa</a></li>
                             <li class="nav-item"><a class="nav-link fw-medium" href="ilNostroContributo/" style="text-align: center;">Il nostro Contributo <br>per l'ambiente</a></li>
                         </div>
@@ -562,7 +573,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Benvenuti a Noi San Zeno in Mozzo</h1>
+            <h1 class="display-4 fw-bold mb-4">NOI San Zeno in Mozzo</h1>
             <p class="lead mb-4">Dal 1993 punto di riferimento per la comunità di San Zeno in Mozzo</p>
             <a href="chisiamo/" class="btn btn-light btn-lg">Scopri di Più</a>
         </div>
@@ -579,7 +590,8 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>Comunità</h3>
-                        <p>Creiamo spazi di incontro e condivisione per tutte le età</p>
+                        <p>Creiamo spazi di incontro e condivisione per tutte le età. Facciamo rete con Enti ed Associazioni del territorio. 
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -597,7 +609,7 @@
                             <i class="fas fa-heart"></i>
                         </div>
                         <h3>Volontariato</h3>
-                        <p>Sosteniamo iniziative sociali e culturali</p>
+                        <p>La nostra associazione è alimentata dalla passione e dall’impegno di numerosi volontari</p>
                     </div>
                 </div>
             </div>
@@ -622,7 +634,7 @@
                                 <h5 class="text-center mb-3">Cosa puoi trovare:</h5>
                                 <div class="row text-center">
                                     <div class="col-4 mb-3">
-                                        <i class="fas fa-bowling-ball"></i>
+                                        <img src="8_ball-Photoroom.svg" alt="8 Ball" class="billiard-ball" style="margin-top: -3px; width: 2.6rem; height: auto; color: orange">
                                         <p class="small mb-0">Biliardo</p>
                                     </div>
                                     <div class="col-4 mb-3">
@@ -698,22 +710,12 @@
         </div>
     </section>
 
-    <!-- Orari Apertura -->
-    <section class="py-5" style="background-color: var(--primary-color);">
-        <div class="container">
-            <h2 class="section-title text-white">ORARI APERTURA SALA GIOCHI</h2>
-            <div class="text-center">
-                <h4 class="text-white mb-4">Sabato: 20:30 - 23:30</h4>
-            </div>
-        </div>
-    </section>
-
     <!-- WiFi Section -->
     <section class="py-5 bg-white">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 text-center">
-                    <img src="img/image.png" alt="WiFi QR Code" class="img-fluid mb-4" style="max-width: 300px;">
+                    <i class="fas fa-wifi mb-4" style="font-size: 8rem; color: var(--primary-color);"></i>
                     <h3 class="h2 mb-4 text-primary">WI-FI GRATUITO</h3>
                     <p class="lead mb-4">In tutto il Circolo è disponibile un servizio<br>Wi-Fi COMODO E GRATUITO!</p>
                     <p>Inquadra con il tuo dispositivo il qr-code presente in ogni stanza e...<br>Buona navigazione!</p>
@@ -729,33 +731,39 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4 style="color: var(--secondary-color);">Circolo NOI San Zeno In Mozzo - APS</h4>
                     <p><i class="fas fa-map-marker-alt me-2"></i>Via F. Miniscalchi, 8 - 37060 Mozzecane (VR)</p>
-                    <p><i class="fas fa-envelope me-2"></i>info@noisanzenoinmozzoaps.com</p>
-                    <p><i class="fas fa-envelope me-2"></i>noisanzenoinmozzoaps@pec.it</p>
+                    <p><i class="fas fa-envelope me-2"></i><a href="mailto:info@noisanzenoinmozzoaps.com" class="text-white">info@noisanzenoinmozzoaps.com</a></p>
+                    <p><i class="fas fa-envelope me-2"></i><a href="mailto:noisanzenoinmozzoaps@pec.it" class="text-white">noisanzenoinmozzoaps@pec.it</a></p>
                     <p style="font-size: 15px; color: white; text-decoration: none;">Cod. Fiscale 93113630235 <br> </p>
                         <p style="font-size: 10px;font-style: italic;">
-                            Iscritta nel RUNTS nella sezione “Associazioni di Promozione Sociale” con n° 549 del 11/10/2022 <br>
+                            Iscritta nel RUNTS nella sezione "Associazioni di Promozione Sociale" con n° 549 del 11/10/2022 <br>
                             Affiliato a NOI Verona APS - Aderente alla Rete nazionale NOI ASSOCIAZIONE APS</p>
-
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4 style="color: var(--secondary-color);">Collegamenti Rapidi</h4>
                     <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
                         <li><a href="chisiamo/" class="text-white">Chi Siamo</a></li>
                         <li><a href="tesseramento/" class="text-white">Tesseramento</a></li>
                         <li><a href="bilanciSociali/" class="text-white">Bilanci Sociali</a></li>
+                        <li><a href="tesseramento/" class="text-white">Tesseramento</a></li>
+                        <li><a href="comeAiutarci/" class="text-white">Come Aiutarci</a></li>
+                        <li><a href="rassegnaStampa/" class="text-white">Rassegna Stampa</a></li>
+                        <li><a href="ilNostroContributo/" class="text-white">Il nostro Contributo per l'ambiente</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h4 style="color: var(--secondary-color);">Social Media</h4>
                     <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/393474358252" class="text-white me-3"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/noisanzenoinmozzoaps/?locale=it_IT" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/noisanzenoinmozzoaps/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@noisanzenoinmozzoaps" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
             <hr class="mt-4 mb-4 border-light">
             <div class="text-center">
-                <p class="mb-0">&copy; 2024-2025 Noi San Zeno in Mozzo APS. Tutti i diritti riservati.</p>
+                <p class="mb-0">&copy; 2024-2025 NOI San Zeno In Mozzo - APS. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
