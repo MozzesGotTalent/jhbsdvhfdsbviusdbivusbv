@@ -521,12 +521,20 @@
         }
 
         .billiard-ball {
-            filter: invert(65%) sepia(72%) saturate(845%) hue-rotate(360deg) brightness(102%) contrast(102%); /* Orange */
-            transition: all 0.3s ease;
+            filter: invert(58%) sepia(72%) saturate(845%) hue-rotate(360deg) brightness(102%) contrast(102%); /* #ff9900 - Orange */
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transizione solo per transform, non per filter */
+            image-rendering: -webkit-optimize-contrast; /* Migliora la nitidezza su webkit */
+            image-rendering: crisp-edges; /* Mantiene i bordi definiti */
+            -webkit-backface-visibility: hidden; /* Previene sgranatura durante la transizione */
+            backface-visibility: hidden;
+            transform: translateZ(0); /* Forza l'accelerazione hardware */
+            will-change: transform, filter; /* Suggerisce al browser di ottimizzare queste proprietà */
+            transform-style: preserve-3d; /* Migliora la qualità della trasformazione */
+            perspective: 1000px; /* Aggiunge profondità alla trasformazione */
         }
         .billiard-ball:hover {
             filter: invert(31%) sepia(98%) saturate(1042%) hue-rotate(197deg) brightness(97%) contrast(107%); /* Blue */
-            transform: scale(1.2);
+            transform: scale(1.15);
         }
     </style>
 </head>
@@ -638,7 +646,7 @@
                                 <h5 class="text-center mb-3">Cosa puoi trovare:</h5>
                                 <div class="row text-center">
                                     <div class="col-4 mb-3">
-                                        <img src="8_ball-Photoroom.svg" alt="8 Ball" class="billiard-ball" style="margin-top: -3px; width: 2.6rem; height: auto; color: orange">
+                                        <img src="8_ball-Photoroom.svg" alt="8 Ball" class="billiard-ball" style="margin-top: -3px; width: 2.6rem; height: auto;">
                                         <p class="small mb-0">Biliardo</p>
                                     </div>
                                     <div class="col-4 mb-3">
