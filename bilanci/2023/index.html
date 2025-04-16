@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noi San Zeno in Mozzo APS</title>
+    <title>Bilancio Sociale 2023 - Noi San Zeno in Mozzo APS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* System font stack */
         :root {
             --primary-color: #0066cc;
             --secondary-color: #ff9900;
@@ -34,12 +33,13 @@
             font-weight: 500;
         }
         body {
-            font-family: 'Rubik', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--heading-font);
             color: var(--text-color);
         }
         h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link {
             font-family: var(--heading-font);
         }
+
         .navbar {
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -48,6 +48,50 @@
             min-height: 80px;
             display: flex;
             align-items: center;
+        }
+        .year-navigation {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        .year-navigation.prev {
+            left: 20px;
+        }
+        .year-navigation.next {
+            right: 20px;
+        }
+        .year-navigation .btn {
+            padding: 1rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .year-navigation .btn:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        .balance-images img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            width: 100%;
+            /* Removed object-fit: cover and aspect-ratio to show full images */
+        }
+        .balance-images img:hover {
+            transform: scale(1.02);
+        }
+        .balance-images .col {
+            margin-bottom: 1rem;
         }
         /* Add new CSS for scrolled navbar */
         .navbar.scrolled {
@@ -270,8 +314,6 @@
             }
             .navbar-nav {
                 margin-top: 1rem;
-                display: block;
-                
             }
             .navbar-nav .d-lg-flex {
                 flex-direction: column;
@@ -279,7 +321,6 @@
                 padding-left: 0 !important;
                 margin-left: 0 !important
             }
-
             .nav-item {
                 margin: 0.5rem 0;
                 width: 100%;
@@ -290,7 +331,6 @@
                 transition: background-color 0.3s ease;
                 color: black;
             }
-
             .nav-item {
                 display: flex;
                 justify-content: center;
@@ -338,7 +378,7 @@
             width: 100%;
         }
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/IMG_0516.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/IMG_0820.jpg');
             background-size: cover;
             background-position: center bottom;
 
@@ -524,158 +564,17 @@
             }
         }
 
-        /* Gallery styles */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
 
-        .gallery-item {
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .article-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .article-date {
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-
-        .article-source {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
         @media (max-width: 1200px) {
-            .gallery {
-                columns: 3;
+            .navbar-nav div:first-child {
+                justify-content: flex-end;
+                margin-left: -200px;
+            }
+            .navbar-nav div:last-child {
+                justify-content: flex-start;
+                padding-left: 100px;
             }
         }
-
-        @media (max-width: 768px) {
-            .gallery {
-                columns: 2;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery {
-                columns: 1;
-            }
-        }
-
-        .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 1rem;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Lightbox styles */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            z-index: 1050;
-            padding: 2rem;
-            box-sizing: border-box;
-        }
-
-        .lightbox.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 1051;
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 1051;
-            padding: 1rem;
-            background-color: rgba(0,0,0,0.5);
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-        }
-
-        .lightbox-nav:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        .lightbox-prev {
-            left: 20px;
-        }
-
-        .lightbox-next {
-            right: 20px;
-        }
-
-
-
     </style>
 </head>
 <body>
@@ -689,22 +588,22 @@
                     <div></div>
                     <div></div>
                 </label>
-                <a class="navbar-brand position-absolute start-50 translate-middle-x" href="../" style="z-index: 1;">
-                    <img src="../img/2-1701871799_NOI_Logo_SanZeno_colore.png" alt="Noi San Zeno Logo">
+                <a class="navbar-brand position-absolute start-50 translate-middle-x" href="../../" style="z-index: 1;">
+                    <img src="../../img/2-1701871799_NOI_Logo_SanZeno_colore.png" alt="Noi San Zeno Logo">
                 </a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav w-100 justify-content-between">
                         <div class="d-lg-flex align-items-center">
-                            <li class="nav-item"><a class="nav-link fw-medium" href="../">Home</a></li>
-                            <li class="nav-item"><a class="nav-link fw-medium" href="../chisiamo/">Chi Siamo</a></li>
-                            <li class="nav-item"><a class="nav-link fw-medium" href="../chisiamo/#where-we-are-section">Dove Siamo</a></li>
-                            <li class="nav-item"><a class="nav-link fw-medium" href="../bilanci/">Bilanci Sociali</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="../../">Home</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="../../chisiamo/">Chi Siamo</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="../../chisiamo/#where-we-are-section">Dove Siamo</a></li>
+                            <li class="nav-item"><a class="nav-link attivo fw-medium" href="../">Bilanci Sociali</a></li>
                         </div>
                         <div class="d-lg-flex align-items-center">
-                            <li class="nav-item"><a class="nav-link fw-medium" href="../tesseramento/">Tesseramento</a></li>
-                            <li class="nav-item"><a class="nav-link fw-medium" href="../comeAiutarci/">Come <br>Aiutarci</a></li>
-                            <li class="nav-item"><a class="nav-link attivo fw-medium" href="#">Rassegna <br>Stampa</a></li>
-                            <li class="nav-item"><a class="nav-link fw-medium" href="../ilNostroContributo/" style="text-align: center;">Il nostro Contributo <br>per l'ambiente</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="../../tesseramento/">Tesseramento</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="../../comeAiutarci/">Come <br>Aiutarci</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="../../rassegnaStampa/">Rassegna <br>Stampa</a></li>
+                            <li class="nav-item"><a class="nav-link fw-medium" href="../../ilNostroContributo/" style="text-align: center;">Il nostro Contributo <br>per l'ambiente</a></li>
                         </div>
                     </ul>
                     
@@ -722,25 +621,75 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Rassegna stampa</h1>
+            <h1 class="display-4 fw-bold mb-4">Bilancio Sociale<br>2023</br>
         </div>
     </section>
 
-    <div class="gallery-container">
-        <div class="gallery">
-            <!-- Gallery items will be dynamically added here -->
+    <div class="container mt-5 pt-5">
+        <p class="lead text-center mb-5">Il bilancio sociale è uno strumento di informazione e trasparenza che mette a disposizione degli stakeholder (associati, cittadini, pubbliche amministrazioni, ecc.) informazioni sulle attività svolte ed i risultati sociali conseguiti dall'ente nell'anno.</p>
+
+        <div class="balance-images text-center">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB1.jpg" alt="Bilancio Sociale 2023 Pagina 1" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB2.jpg" alt="Bilancio Sociale 2023 Pagina 2" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB3.jpg" alt="Bilancio Sociale 2023 Pagina 3" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB4.jpg" alt="Bilancio Sociale 2023 Pagina 4" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB5.jpg" alt="Bilancio Sociale 2023 Pagina 5" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB6.jpg" alt="Bilancio Sociale 2023 Pagina 6" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB7.jpg" alt="Bilancio Sociale 2023 Pagina 7" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB8.jpg" alt="Bilancio Sociale 2023 Pagina 8" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB9.jpg" alt="Bilancio Sociale 2023 Pagina 9" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB10.jpg" alt="Bilancio Sociale 2023 Pagina 10" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB11.jpg" alt="Bilancio Sociale 2023 Pagina 11" class="img-fluid">
+                </div>
+                <div class="col">
+                    <img src="../img2023/LIBRETTO_BILANCIO-SOCIALE-2023-WEB12.jpg" alt="Bilancio Sociale 2023 Pagina 12" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-5">
+            <a href="https://cdn.qr-code-generator.com/account17965212/45005814_1.pdf?Expires=1744870984&Signature=vGxOJCYHLcHNspMennbWyt-b0fgErLgsEoVQaw7uBsLdZZJ5~jqDpq7~rPUHhouKTxA5twZ-fQQRft8oZprkb7x-1mhYwrZdkd8kb2BQhuYxwJ7gh9ZjHb53ogleu7fkVf8T0~eJdCWy4LwVubZ6DIoJdeH4MHxq6PmW-4ZYkNLwU6XutN3FLF-Vmi9PWABDQdo8ETaKj8I9ZGo2NM238HT6-Hm~bQX4SmL2Y00vNvnTXxOePoKBVbkaYhyRT0HMkiTJzN4uixi47YuiF-YAPJLFVgxHH7GvpnfgVsQ69lNLh~qYV4LzJZJqoHhllqnNnpHN6~A2JoqZxb6-HjV1nw__&Key-Pair-Id=KKMPOJU8AYATR" class="btn btn-primary btn-lg" download>
+                <i class="fas fa-download me-2"></i>Scarica PDF
+            </a>
         </div>
     </div>
 
-    <div class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <span class="lightbox-nav lightbox-prev"><i class="fas fa-chevron-left"></i></span>
-        <span class="lightbox-nav lightbox-next"><i class="fas fa-chevron-right"></i></span>
-        <img src="" alt="">
+    <div class="year-navigation prev">
+        <a href="../2022/" class="btn" title="Vai al Bilancio 2022">
+            <i class="fas fa-chevron-left"></i>
+        </a>
     </div>
+
+    <div class="year-navigation next">
+        <a href="../2024/" class="btn" title="Vai al Bilancio 2024">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -759,14 +708,14 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4 style="color: var(--secondary-color);">Collegamenti Rapidi</h4>
                     <ul class="list-unstyled">
-                        <li><a href="../" class="text-white">Home</a></li>
-                        <li><a href="../chisiamo/" class="text-white">Chi Siamo</a></li>
-                        <li><a href="../tesseramento/" class="text-white">Tesseramento</a></li>
-                        <li><a href="../bilanciSociali/" class="text-white">Bilanci Sociali</a></li>
-                        <li><a href="../tesseramento/" class="text-white">Tesseramento</a></li>
-                        <li><a href="../comeAiutarci/" class="text-white">Come Aiutarci</a></li>
-                        <li><a href="#" class="text-white">Rassegna Stampa</a></li>
-                        <li><a href="../ilNostroContributo/" class="text-white">Il nostro Contributo per l'ambiente</a></li>
+                        <li><a href="../../" class="text-white">Home</a></li>
+                        <li><a href="../../chisiamo/" class="text-white">Chi Siamo</a></li>
+                        <li><a href="../../tesseramento/" class="text-white">Tesseramento</a></li>
+                        <li><a href="#" class="text-white">Bilanci Sociali</a></li>
+                        <li><a href="../../tesseramento/" class="text-white">Tesseramento</a></li>
+                        <li><a href="../../comeAiutarci/" class="text-white">Come Aiutarci</a></li>
+                        <li><a href="../../rassegnaStampa/" class="text-white">Rassegna Stampa</a></li>
+                        <li><a href="../../ilNostroContributo/" class="text-white">Il nostro Contributo per l'ambiente</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -805,106 +754,3 @@
     </script>
 </body>
 </html>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const gallery = document.querySelector('.gallery');
-        const lightbox = document.querySelector('.lightbox');
-        const lightboxImg = lightbox.querySelector('img');
-        const closeBtn = lightbox.querySelector('.lightbox-close');
-        const prevBtn = lightbox.querySelector('.lightbox-prev');
-        const nextBtn = lightbox.querySelector('.lightbox-next');
-        let currentIndex = 0;
-        const images = [
-            { src: 'imgGiornale/VeronaFedele_05-01-2025.pdf', date: '2025-01-05', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-28-04-24_Complimenti al nostro segretario Dennis Albertini per la nuova nomina di consigliere territoriale.JPG', date: '2024-04-28', source: 'Verona Fedele' },
-            { src: 'imgGiornale/arena-25-06-24.jpg', date: '2024-06-25', source: "L'Arena" },
-            { src: 'imgGiornale/arena-22-01-24.jpg', date: '2024-01-22', source: "L'Arena" },
-            { src: 'imgGiornale/verona-fedele-21-01-24.jpg', date: '2024-01-21', source: 'Verona Fedele' },
-            { src: 'imgGiornale/avvenire-07-02-24.jpg', date: '2024-02-07', source: 'Avvenire' },
-            { src: 'imgGiornale/veronafedele-07-12-23.jpg', date: '2023-12-07', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-20-01-23.jpg', date: '2023-01-20', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-29-01-23.png', date: '2023-01-29', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-25-09-22.jpg', date: '2022-09-25', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedere-29-10-21.jpeg', date: '2021-10-29', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-31-01-21.jpg', date: '2021-01-31', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele2-31-01-21.jpg', date: '2021-01-31', source: 'Verona Fedele' },
-            { src: 'imgGiornale/l\'arena-07-02-21.jpg', date: '2021-02-07', source: "L'Arena" },
-            { src: 'imgGiornale/l\'arena-28-11-20.jpg', date: '2020-11-28', source: "L'Arena" },
-            { src: 'imgGiornale/l\'arena-07-11-20.jpg', date: '2020-11-07', source: "L'Arena" },
-            { src: 'imgGiornale/veronafedele-11-10-20.jpg', date: '2020-10-11', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-07-08-20.jpg', date: '2020-08-07', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-15-05-20.jpg', date: '2020-05-15', source: 'Verona Fedele' },
-            { src: 'imgGiornale/veronafedele-aprile-20.jpg', date: '2020-04-01', source: 'Verona Fedele' },
-            { src: 'imgGiornale/l\'arena-06-02-20.jpg', date: '2020-02-06', source: "L'Arena" },
-            { src: 'imgGiornale/l\'arena-29-10-19.jpg', date: '2019-10-29', source: "L'Arena" },
-            { src: 'imgGiornale/l\'arena-26-03-19.jpg', date: '2019-03-26', source: "L'Arena" },
-            { src: 'imgGiornale/villafranca-week-09-03-19.jpg', date: '2019-03-09', source: 'Villafranca Week' },
-            { src: 'imgGiornale/villafranca-week-23-02-19.jpg', date: '2019-02-23', source: 'Villafranca Week' },
-            { src: 'imgGiornale/l\'arena-15-02-2019.jpg', date: '2019-02-15', source: "L'Arena" },
-            { src: 'imgGiornale/veronafedele-10-02-2019.jpg', date: '2019-02-10', source: 'Verona Fedele' },
-            { src: 'imgGiornale/villafranca-week-19-05-18.jpg', date: '2018-05-19', source: 'Villafranca Week' },
-            { src: 'imgGiornale/villafranca-week-29-04-2017.jpg', date: '2017-04-29', source: 'Villafranca Week' },
-            { src: 'imgGiornale/villaranca-week-29-04-17.jpg', date: '2017-04-29', source: 'Villafranca Week' },
-            { src: 'imgGiornale/l\'arena-16-02-17.jpg', date: '2017-02-16', source: "L'Arena" }
-        ];
-        
-        // Sort images by date in descending order
-        images.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        // Create gallery items
-        images.forEach((item, index) => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-            galleryItem.innerHTML = `
-                <img src="${item.src}" alt="${item.source} - ${item.date}" loading="lazy">
-                <div class="article-info">
-                    <div class="article-date">${new Date(item.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
-                    <div class="article-source">${item.source}</div>
-                </div>
-            `;
-            galleryItem.addEventListener('click', () => openLightbox(index));
-            gallery.appendChild(galleryItem);
-        });
-
-        function openLightbox(index) {
-            currentIndex = index;
-            lightboxImg.src = images[currentIndex].src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function showPrevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            lightboxImg.src = images[currentIndex].src;
-        }
-
-        function showNextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            lightboxImg.src = images[currentIndex].src;
-        }
-
-        closeBtn.addEventListener('click', closeLightbox);
-        prevBtn.addEventListener('click', showPrevImage);
-        nextBtn.addEventListener('click', showNextImage);
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') showPrevImage();
-            if (e.key === 'ArrowRight') showNextImage();
-        });
-    });
-</script>
